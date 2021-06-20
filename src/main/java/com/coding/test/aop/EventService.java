@@ -1,4 +1,4 @@
-package com.coding.test;
+package com.coding.test.aop;
 
 public interface EventService {
     public void created();

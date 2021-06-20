@@ -1,31 +1,30 @@
-package com.coding.test;
+package com.coding.test.aop;
 
+import com.coding.test.aspect.PerfLogging;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SimpleServiceEvent implements EventService{
     @Override
+    @PerfLogging
     public void created() {
-        long begin = System.currentTimeMillis();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("created");
-        System.out.println(System.currentTimeMillis() - begin);
     }
 
     @Override
+    @PerfLogging
     public void operation() {
-        long begin = System.currentTimeMillis();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("operation");
-        System.out.println(System.currentTimeMillis() - begin);
 
     }
 
