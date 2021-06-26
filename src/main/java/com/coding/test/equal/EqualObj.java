@@ -50,4 +50,16 @@ public class EqualObj {
 
         return false;
     }
+
+    @Override
+    public int hashCode() {
+
+        final int prime = 31;
+        int hashCode = 1;
+
+        hashCode = prime * hashCode + ((name == null) ? 0 : name.hashCode());
+        hashCode = prime * hashCode + age;
+
+        return hashCode;
+    }
 }
