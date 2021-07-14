@@ -1,26 +1,27 @@
 package com.coding.test.programmers;
 
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ex_14 {
-    public static int[] solution(int[] answers) {
-        int[] answer = {};
-        int[] first_ans = {1,2,3,4,5};
-        int[] second_ans = {2, 1, 2, 3, 2, 4, 2, 5};
-        int[] third_ans = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
-        ArrayList<int[]> answer_list = new ArrayList();
-        answer_list.add(first_ans);
-        answer_list.add(second_ans);
-        answer_list.add(third_ans);
 
-        for(int[] ans : answer_list){
-
+    public static int solution(int[] citations) {
+            int[] sorted = Arrays.stream(citations).sorted().toArray();
+            int answer = 0;
+            for(int i=sorted.length-1; i>=0; i--){
+                if(sorted[i] > answer){
+                    answer++;
+                }else{
+                    break;
+                }
+            }
+            return answer;
         }
 
-        return answer;
-    }
 
     public static void main(String[] args) {
-
+//        int[] cita = {3,0,6,1,5};
+        int[] cita = {3,5,1,2};
+        solution(cita);
     }
 }
