@@ -1,4 +1,4 @@
-package com.coding.test.programmers;
+package com.coding.test.programmers.algorithm;
 
 import java.util.ArrayList;
 
