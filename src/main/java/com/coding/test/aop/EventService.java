@@ -5,3 +5,4 @@ public interface EventService {
     public void operation();
     public void deleted();
 }
+
