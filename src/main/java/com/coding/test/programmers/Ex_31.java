@@ -22,7 +22,7 @@ public class Ex_31 {
 
 
     public static void main(String[] args) {
-        int num = 45;
+        int num = 4533;
         solution(num);
     }
 
