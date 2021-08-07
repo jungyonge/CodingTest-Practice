@@ -32,6 +32,8 @@ public class Ex_38 {
     static void dfs(int m, int n, int[][] picture, int x, int y, int num, boolean[][] visited) {
         if(visited[x][y] || picture[x][y] != num) return;
         picCnt++;
+        picCnt++;
+
         visited[x][y] = true;
 
         if(0 <= x-1) {
