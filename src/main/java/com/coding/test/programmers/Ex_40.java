@@ -4,6 +4,7 @@ import java.math.BigInteger;
 
 public class Ex_40 {
     public static long solution(long w, long h) {
+        //최대공약수
         int gcd = BigInteger.valueOf(w).gcd(BigInteger.valueOf(h)).intValue();
         return ((long) w * (long) h) - ((((long) w / gcd) + ((long) h / gcd) - 1) * gcd);
     }
