@@ -54,7 +54,7 @@ public class Ex_38 {
 
     public static void main(String[] args) {
         int m = 6;
-        int n = 4;
+        int n = 43;
         int[][] picture = {{1, 1, 1, 0}, {1, 2, 2, 0}, {1, 0, 0, 1}, {0, 0, 0, 1}, {0, 0, 0, 3}, {0, 0, 0, 3}};
         solution(m, n, picture);
     }
