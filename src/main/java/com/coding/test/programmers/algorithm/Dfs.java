@@ -36,6 +36,8 @@ public class Dfs {
         for(int i : graph[v]){
             if(!visited[i])
                 dfs(graph, i, visited);
+            dfs(graph, i, visited);
+
         }
     }
 }
