@@ -40,6 +40,29 @@ public class StreamTest {
                 .collect(Collectors.toList());
 
         namesWithFlatMap.stream().forEach(System.out::println);
+
+        int[] intArr = new int[]{1, 2, 3, 4, 5};
+
+        long a = Arrays.stream(intArr).filter(x -> x % 2 == 0).count();
+
+        System.out.println(a);
+
+        List<String> list1 = Arrays.asList("A군", "B군", "C군", "D군", "E군", "F군");
+
+        // 순차처리
+        Stream<String> stream1 = list1.stream();
+        stream1.forEach(StreamTest :: print);
+
+        System.out.println();
+
+        // 병렬처리
+        Stream<String> parallelStream = list1.parallelStream();
+        parallelStream.forEach(StreamTest :: print);
     }
+
+    public static void print(String str){
+        System.out.println(str + " : " + Thread.currentThread().getName());
+    }
+
 
 }
