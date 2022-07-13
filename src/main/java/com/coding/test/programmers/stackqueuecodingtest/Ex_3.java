@@ -1,6 +1,7 @@
 package com.coding.test.programmers.stackqueuecodingtest;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -104,5 +105,20 @@ public class Ex_3 {
 
 
         solution(100, 100 , new int[] {10,10,10,10,10,10,10,10,10,10});
+
+        List<String> list = new ArrayList();
+        list.add("apple");
+        list.add("melon");
+        list.add("banana");
+
+        Iterator iter = list.iterator();
+        while(iter.hasNext()) {
+            if("melon".equals(iter.next()) || "banana".equals(iter.next())) {
+                System.out.println(iter.next());
+                iter.remove();
+            }
+        }
+
+        System.out.println(list);
     }
 }
