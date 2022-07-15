@@ -1,8 +1,10 @@
 package com.coding.test.programmers.heapcodingtest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.stream.Collectors;
@@ -24,9 +26,9 @@ public class Ex_2 {
             }
         });
 
-        Queue<Job> queue = new LinkedList<Job>();
-        for(int[] job : jobs){
-            queue.offer(new Job(job[0],job[1], 0, false));
+        ArrayList<Job> queue = new ArrayList<>();
+        for (int[] job : jobs) {
+            queue.add(new Job(job[0], job[1], 0, false,false));
         }
 
         PriorityQueue<Job> priorityQueue = new PriorityQueue<>();
@@ -39,48 +41,48 @@ public class Ex_2 {
 //                return 1;
 //            }
 //        });
-        Job nowJob = queue.poll();
+        Job nowJob = null;
         int nowTime = 0;
-
-        priorityQueue.offer(nowJob);
 
         while (true) {
 
-            if (nowJob == null && !priorityQueue.isEmpty()) {
+            for (int i = 0; i < queue.size(); i++) {
+                Job tempJob = queue.get(i);
+                if (tempJob.enterTime <= nowTime && !tempJob.isOnQueue()) {
+                    tempJob.setOnQueue(true);
+                    priorityQueue.offer(tempJob);
+                }
+            }
+
+
+            if(nowJob == null && !priorityQueue.isEmpty()){
                 nowJob = priorityQueue.poll();
+                nowJob.setInProgressing(true);
             }
 
             if (nowJob != null && nowJob.getNeedTime() > 0) {
                 nowJob.setNeedTime(nowJob.getNeedTime() - 1);
                 nowJob.setTotalTime(nowJob.getTotalTime() + 1);
-            }
-
-            if (nowJob != null) {
-                if (priorityQueue.peek() != null) {
-                    if (nowJob.getNeedTime() == 0
-                            && priorityQueue.peek().getEnterTime() >= answer) {
-                        answer += nowJob.getTotalTime();
-                        nowJob = priorityQueue.poll();
-                        if (nowJob != null) {
-                            nowJob.setNeedTime(nowJob.getNeedTime() - 1);
-                        }
-                    } else if (!priorityQueue.isEmpty() && nowJob.getNeedTime() == 0
-                            && priorityQueue.peek().getEnterTime() < answer) {
-                        answer += nowJob.getTotalTime();
-                        nowJob = null;
-                    }
-                }
-            }
-
-            for (Job tempJob : queue) {
-                if(tempJob.enterTime <= nowTime){
-                    priorityQueue.offer(queue.poll());
+                if(nowJob.getNeedTime() == 0 && !priorityQueue.isEmpty()){
+                    answer += nowJob.getTotalTime();
+                    nowJob = null;
                 }
             }
 
 
-            for (Job tempJob : priorityQueue) {
-                tempJob.setTotalTime(tempJob.getTotalTime() + 1);
+
+            if(nowJob == null && !priorityQueue.isEmpty()){
+                nowJob = priorityQueue.poll();
+                nowJob.setInProgressing(true);
+                nowJob.setNeedTime(nowJob.getNeedTime() - 1);
+                nowJob.setTotalTime(nowJob.getTotalTime() + 1);
+            }
+
+
+            for (Job temp : queue){
+                if(!temp.isInProgressing()){
+                    temp.setTotalTime(temp.getTotalTime() + 1);
+                }
             }
 
             if (priorityQueue.isEmpty() && nowJob.getNeedTime() == 0) {
@@ -102,11 +104,14 @@ public class Ex_2 {
 
         boolean inProgressing;
 
-        public Job(int enterTime, int needTime, int totalTime, boolean inProgressing) {
+        boolean onQueue;
+
+        public Job(int enterTime, int needTime, int totalTime, boolean inProgressing,boolean onQueue) {
             this.enterTime = enterTime;
             this.needTime = needTime;
             this.totalTime = totalTime;
             this.inProgressing = inProgressing;
+            this.onQueue = onQueue;
         }
 
         @Override
@@ -128,6 +133,14 @@ public class Ex_2 {
 
         public int getNeedTime() {
             return needTime;
+        }
+
+        public void setOnQueue(boolean onQueue) {
+            this.onQueue = onQueue;
+        }
+
+        public boolean isOnQueue() {
+            return onQueue;
         }
 
         public void setInProgressing(boolean inProgressing) {
@@ -222,7 +235,7 @@ public class Ex_2 {
     public static void main(String[] args) {
 
         Ex_2 solution = new Ex_2();
-        System.out.println(solution.solution(new int[][]{{0, 10}, {4, 10}, {15, 2}, {5, 11}}));
+        System.out.println(solution.solution(new int[][]{{0, 3}, {1, 9}, {2, 6}}));
 
 
     }
