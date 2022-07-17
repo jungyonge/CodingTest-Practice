@@ -33,16 +33,23 @@ public class Permutaion {
     public static void main(String[] args) {
 
         List<String> arr = new ArrayList<>();
-        arr.add("a");
-        arr.add("b");
-        arr.add("c");
-        arr.add("d");
+        arr.add("4");
+        arr.add("1");
+        arr.add("7");
+        arr.add("7");
+        arr.add("2");
+        arr.add("5");
+        arr.add("2");
+        arr.add("8");
+        arr.add("4");
+        arr.add("1");
+
 
 
         List<String> temp = new ArrayList<>();
         List<String> result = new ArrayList<>();
 
-        reculsion(arr, temp, result, arr.size(), 2);
+        reculsion(arr, temp, result, arr.size(), 6);
         System.out.println(result.toString());
     }
 }
