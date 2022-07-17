@@ -1,5 +1,6 @@
 package com.coding.test.programmers.greadycodingtest;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class Ex_4 {
@@ -40,7 +41,6 @@ public class Ex_4 {
         return answer;
     }
 
-    import java.util.*;
 
     class Solution {
         public int solution(int[] people, int limit) {
