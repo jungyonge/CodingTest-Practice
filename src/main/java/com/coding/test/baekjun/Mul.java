@@ -7,9 +7,13 @@ public class Mul {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int first = scanner.nextInt();
-        int sec = scanner.nextInt();
-        int[] sumArr = sec.
+        String secStr = scanner.next();
+        String[] sec = secStr.split("");
 
-        for(int i = 0 ; i )
+
+        for(int i = sec.length - 1; i >= 0 ; i--){
+            System.out.println(first * Integer.parseInt(sec[i]));
+        }
+        System.out.println(first * Integer.parseInt(secStr));
     }
 }
