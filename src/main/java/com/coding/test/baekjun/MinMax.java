@@ -10,9 +10,10 @@ public class MinMax {
         int N = scanner.nextInt();
         int[] arr = new int[N];
         int min = 1000000;
-        int max = 0;
+        int max = -1000000;
+        int num = 0;
         for(int i = 0 ; i < N ; i++){
-            int num = scanner.nextInt();
+            num = scanner.nextInt();
             if(num < min){
                 min = num;
             }
