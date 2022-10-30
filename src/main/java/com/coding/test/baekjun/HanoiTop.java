@@ -43,6 +43,7 @@ public class HanoiTop {
 
         count++;
 
+        System.out.println(count);
         if(n == 1) {
             sb.append(start + " " + to + "\n");
             return count;
