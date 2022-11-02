@@ -9,7 +9,7 @@ public class Permutation_2 {
     /**
      * 순열 구하기
      * 주어진 배열에서 n개 뽑을 경우의수
-     * 중복허
+     * 중복허용
      * @param arr    : 기준 리스트
      * @param result : 결과를 담아줄 리스트용
      * @param n      : 전체 갯수
@@ -67,7 +67,7 @@ public class Permutation_2 {
         List<String> temp = new ArrayList<>();
         List<String> result = new ArrayList<>();
 
-        reculsion(arr, temp, result, arr.size(), 2);
+        reculsion(arr, temp, result, arr.size(), 4);
         System.out.println(result.toString());
     }
 

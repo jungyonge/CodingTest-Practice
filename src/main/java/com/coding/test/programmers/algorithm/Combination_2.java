@@ -40,7 +40,7 @@ public class Combination_2 {
         List<String> result = new ArrayList<>();
         List<String> temp = new ArrayList<>();
 
-        reculsion(arr,temp, result, 0, arr.size(), 2);
+        reculsion(arr,temp, result, 0, arr.size(), 1);
         System.out.println(result.toString());
     }
 
