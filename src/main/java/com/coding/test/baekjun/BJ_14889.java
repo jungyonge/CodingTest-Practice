@@ -48,10 +48,14 @@ public class BJ_14889 {
             }
             int tempGap = Math.abs(starkStat - linkStat);
             gap = Math.min(tempGap,gap);
+            if(gap == 0){
+                System.out.println(gap);
+            }
 
         }
-
-        System.out.println(gap);
+        if(gap != 0){
+            System.out.println(gap);
+        }
 
     }
 
