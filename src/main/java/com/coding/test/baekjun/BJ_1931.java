@@ -17,5 +17,4 @@ public class BJ_1931 {
         System.out.println(time);
     }
 
-    public static void dfs()
 }
