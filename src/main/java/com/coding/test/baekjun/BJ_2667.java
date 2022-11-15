@@ -14,6 +14,8 @@ public class BJ_2667 {
     //dfs
     //맵 구역 찾기
     //그래프
+    //좌표이동
+
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;

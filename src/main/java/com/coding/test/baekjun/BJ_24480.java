@@ -17,6 +17,11 @@ public class BJ_24480 {
     static int[] check; // 방문한 정점을 기록할 배열
     static int count; // 방문 순서
 
+    //그래프
+    //양방향
+    //무방향
+    //정점
+
     public static void main(String[] args) throws IOException {
 
         st = new StringTokenizer(br.readLine());

@@ -8,6 +8,8 @@ public class Ex_3 {
 
 //    https://school.programmers.co.kr/learn/courses/30/lessons/1844
 //    게임맵 최단거리
+    // 좌표이동
+
 //    bfs
 
         static int[] x = {0,1,-1,0};

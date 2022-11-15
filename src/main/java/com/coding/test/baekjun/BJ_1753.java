@@ -19,6 +19,9 @@ class Node implements Comparable<Node> {
     }
 }
 
+//노드 간선 가중치
+//다익스트
+
 public class BJ_1753 {
 
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
