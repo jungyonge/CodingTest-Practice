@@ -18,8 +18,8 @@ public class BJ_24480 {
     static int count; // 방문 순서
 
     //그래프
-    //양방향
-    //무방향
+    //양방향 간선
+    //무방향 간선
     //정점
 
     public static void main(String[] args) throws IOException {
