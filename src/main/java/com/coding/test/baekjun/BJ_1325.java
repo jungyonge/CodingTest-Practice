@@ -3,6 +3,8 @@ package com.coding.test.baekjun;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BJ_1325 {
@@ -13,8 +15,9 @@ public class BJ_1325 {
     static int[][] graph;
     static int V;
     static int E;
-    static boolean[][] visited;
+    static boolean[] visited;
     static int result;
+    static int[] result_array;
     static int MAX_COUNT = Integer.MIN_VALUE;
 
 
@@ -24,8 +27,7 @@ public class BJ_1325 {
         V = sc.nextInt();
         E = sc.nextInt();
         graph = new int[V + 1][V + 1];
-        visited = new boolean[V + 1][V + 1];
-
+        result_array = new int[V+1];
         int a, b;
         for (int i = 0; i < E; i++) {
             a = sc.nextInt();
@@ -36,39 +38,45 @@ public class BJ_1325 {
         }
 
         ArrayList<Integer> count = new ArrayList<>();
+
         // dfs 탐색
         for (int i = 1; i <= V; i++) {
             result = 0;
-            dfs(i, visited[i]);
+            visited = new boolean[V + 1];
+            bfs(i);
+            result_array[i] = result;
+            MAX_COUNT = Math.max(result,MAX_COUNT);
 
-            if (result > MAX_COUNT) {
-                MAX_COUNT = result;
-                count.clear();
-            }
-            if (result >= MAX_COUNT) {
-                count.add(i);
-            }
         }
-        Collections.sort(count);
-        for (Integer i : count) {
-            System.out.println(i);
+        StringBuilder sb = new StringBuilder();
+        int j = 0 ;
+        for(int i : result_array){
+            if(i == MAX_COUNT){
+                sb.append(j + " ");
+            }
+            j++;
         }
 
+        System.out.println(sb.toString());
         sc.close();
         return;
     }
 
-    public static void dfs(int index,boolean[] visited_index) {
 
-        for (int i = 1; i <= V; i++) {
-
-            if (graph[index][i] == 1 && !visited_index[i]) {
-                visited_index[i] = true;
-
-                dfs(i,visited_index);
-                result++;
+    public static void bfs(int x) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(x);
+        visited[x] = true;
+        while (!q.isEmpty()) {
+            int v = q.poll();
+            for(int i = 1 ; i < graph[v].length - 1 ; i ++){
+                if(graph[v][i] != 0 && !visited[i]){
+                    q.add(i);
+                    visited[i] = true;
+                    result++;
+                }
             }
-        }
 
+        }
     }
 }
