@@ -58,15 +58,20 @@ public class PG_1843 {
     public static void dfs(int N, int M, int depth) {
         if (depth == M) {
             int sum = array[0];
+            StringBuilder sb = new StringBuilder();
+            sb.append(array[0] + " ");
+
             for(int i = 1 ; i < array.length ; i++){
                 sum -= array[i];
+                sb.append(array[i] + " ");
             }
+            System.out.println(sb);
+            System.out.println(sum);
             max = Math.max(max,sum);
             return;
         }
 
         for (int i = 0; i < N; i++) {
-
             if (!visit[i]) {
                 visit[i] = true;
                 array[depth] = Integer.parseInt(String.valueOf(stackToList.get(i)));
@@ -78,6 +83,7 @@ public class PG_1843 {
     public static boolean isNumeric(String s) {
         return s != null && s.matches("[-+]?\\d*\\.?\\d+");
     }
+
     public static void main(String[] args) {
         solution(new String[] {"5", "-", "3", "+", "1", "+", "2", "-", "4"});
     }
