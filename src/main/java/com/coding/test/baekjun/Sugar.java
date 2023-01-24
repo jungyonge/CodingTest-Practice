@@ -23,7 +23,7 @@ public class Sugar {
 
             sum = sum + tempKg/3;
             tempKg = tempKg - (tempKg/3 * 3);
-            if(tempKg != 0 && tempKg%5 != 0){
+            if(tempKg != 0 && tempKg %5 != 0){
                 sum = -1;
             }else if (tempKg != 0 && tempKg%5 == 0){
                 sum = sum + tempKg/5;
