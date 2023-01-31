@@ -1,8 +1,8 @@
 package com.coding.test.codility;
 
-import com.coding.test.stack.Stack;
-import java.util.LinkedList;
-import java.util.Queue;
+//import com.coding.test.stack.Stack;
+//import java.util.LinkedList;
+//import java.util.Queue;
 
 public class CyclicRotation {
     public int[] solution(int[] A, int K) {
