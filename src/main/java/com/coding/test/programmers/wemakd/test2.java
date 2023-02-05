@@ -19,11 +19,11 @@ public class test2 {
 
         n -= (sum + 1);
         String str = String.valueOf((int) Math.pow(10, num2) + n / (num2 + 1));
-        return str.charAt(n % ((int) num2 + 1)) - '0';
+        return Integer.parseInt(String.valueOf(str.charAt(n % ((int) num2 + 1))));
     }
 
     public static void main(String[] args) {
 
-        System.out.println(solution(99999999));
+        System.out.println(solution(13));
     }
 }
